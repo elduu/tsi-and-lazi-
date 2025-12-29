@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Swiper from "swiper";
 import ScrollReveal from "scrollreveal";
 
@@ -15,28 +16,27 @@ import Locations from "./components/Locations";
 import GiftRegistry from "./components/GiftRegistry";
 import Countdown from "./components/Countdown";
 import SaveTheDate from "./components/SaveTheDate";
+import RSVPForm from "./components/RSVPForm";
+import RSVPMarquee from "./components/RSVPMarquee";
+import GuestPhotos from "./components/GuestPhotos"; // ← Make sure this exists
+
 import "./App.css";
- // Keep your JS intact
 
-
-
-function App() {
+function HomePage() {
   useEffect(() => {
     // MENU TOGGLE
     const menuBtn = document.getElementById("menu-btn");
     const navLinks = document.getElementById("nav-links");
-    const menuBtnIcon = menuBtn.querySelector("i");
+    const menuBtnIcon = menuBtn?.querySelector("i");
 
-    menuBtn.addEventListener("click", () => {
-      navLinks.classList.toggle("open");
-      const isOpen = navLinks.classList.contains("open");
-      menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
-    });
+    const toggleMenu = () => {
+      navLinks?.classList.toggle("open");
+      const isOpen = navLinks?.classList.contains("open");
+      menuBtnIcon?.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
+    };
 
-    navLinks.addEventListener("click", () => {
-      navLinks.classList.remove("open");
-      menuBtnIcon.setAttribute("class", "ri-menu-line");
-    });
+    menuBtn?.addEventListener("click", toggleMenu);
+    navLinks?.addEventListener("click", toggleMenu);
 
     // SCROLLREVEAL
     const scrollRevealOption = { distance: "50px", origin: "bottom", duration: 1000 };
@@ -44,10 +44,6 @@ function App() {
     ScrollReveal().reveal(".about__container .section__header", scrollRevealOption);
     ScrollReveal().reveal(".about__container .section__description", { ...scrollRevealOption, delay: 500, interval: 500 });
     ScrollReveal().reveal(".about__container img", { ...scrollRevealOption, delay: 1500 });
-
-    // ScrollReveal().reveal(".service__container .section__header", scrollRevealOption);
-    // ScrollReveal().reveal(".service__container .section__description", { ...scrollRevealOption, delay: 500 });
-    // ScrollReveal().reveal(".service__card", { duration: 1000, delay: 1000, interval: 500 });
 
     ScrollReveal().reveal(".blog__content .section__header", scrollRevealOption);
     ScrollReveal().reveal(".blog__content h4", { ...scrollRevealOption, delay: 500 });
@@ -62,32 +58,48 @@ function App() {
 
     // INSTAGRAM SCROLL DUPLICATE
     const instagram = document.querySelector(".instagram__flex");
-    Array.from(instagram.children).forEach((item) => {
-      const duplicateNode = item.cloneNode(true);
-      duplicateNode.setAttribute("aria-hidden", true);
-      instagram.appendChild(duplicateNode);
-    });
-  }, []); // runs once after mount
+    if (instagram) {
+      Array.from(instagram.children).forEach((item) => {
+        const duplicateNode = item.cloneNode(true);
+        duplicateNode.setAttribute("aria-hidden", true);
+        instagram.appendChild(duplicateNode);
+      });
+    }
+
+    // Cleanup listeners on unmount
+    return () => {
+      menuBtn?.removeEventListener("click", toggleMenu);
+      navLinks?.removeEventListener("click", toggleMenu);
+    };
+  }, []);
 
   return (
-    <div className="App">
+    <>
       <Header />
       <About />
-      <Portfolio />
-      <Services />
+      <SaveTheDate />
       <Countdown />
-        <Locations />
-      <Testimonials />
+      <Services />
+      <Locations /> 
       <Gallery />
       <Blog />
       <Instagram />
+      <RSVPForm />
+      <RSVPMarquee />
       <Footer />
-    <GiftRegistry />
-    <SaveTheDate/>
-    </div>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/guest-photos" element={<GuestPhotos />} />
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
-
-

@@ -1,34 +1,53 @@
-import React from 'react';
- // ← make sure this file exists
+import React from "react";
 
 export default function Locations() {
   return (
     <section className="map-section" id="locations">
       <div className="section__container">
-        <h2 className="section__header">~ IMPORTANT LOCATIONS ~</h2>
+        <h2 className="section__header">IMPORTANT LOCATIONS</h2>
         <p className="section__description">
-          Groom’s House • Bride’s House • Ceremony Church
         </p>
-
         <div className="map-container">
-         <iframe
-  title="Wedding Locations"
-  width="100%"
-  height="550"
-  style={{ border: 0 }}
-  loading="lazy"
-  allowFullScreen
-  referrerPolicy="no-referrer-when-downgrade"
-  src="https://www.google.com/maps/d/u/0/embed?mid=1nyA_e-StfqP_BEXT9YbetVcnJTw9TuU&ehbc=2E312F" >
-</iframe>
+          <iframe
+            title="Wedding Locations"
+            width="100%"
+            height="500"
+            style={{ border: 0 }}
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/d/u/0/embed?mid=1nyA_e-StfqP_BEXT9YbetVcnJTw9TuU"
+          />
+        </div>
 
-          {/* Optional: Custom labels below the map */}
-          <div className="map-labels">
-            <div className="label">
-              icon-groom"Groom’s House</div>
-            <div className="label               icon-bride">Bride’s House</div>
-            <div className="label                icon-church">Ceremony Church</div>
-          </div>
+        {/* Clickable location buttons */}
+        <div className="map-labels">
+          <a
+            href="https://maps.google.com/?q=Groom+House"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="label icon-groom"
+          >
+            Groom’s House
+          </a>
+
+          <a
+            href="https://maps.google.com/?q=Bride+House"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="label icon-bride"
+          >
+            Bride’s House
+          </a>
+
+          <a
+            href="https://maps.google.com/?q=Ceremony+Church"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="label icon-church"
+          >
+             Church
+          </a>
         </div>
       </div>
     </section>

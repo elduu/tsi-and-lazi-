@@ -2,38 +2,40 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer id="contact">
+    <footer id="contact" className="footer">
       <div className="section__container footer__container">
-        <div className="footer__col">
-          <img src="assets/logo-dark.png" alt="logo" />
-          <div className="footer__socials">
-            <a href="#"><i className="ri-facebook-fill"></i></a>
-            <a href="#"><i className="ri-instagram-line"></i></a>
-            <a href="#"><i className="ri-twitter-fill"></i></a>
-            <a href="#"><i className="ri-youtube-fill"></i></a>
-            <a href="#"><i className="ri-pinterest-line"></i></a>
+        {/* Compact Layout: Centered Couple Info + Links + Message */}
+        <div className="footer__compact">
+          <div className="couple__info">
+            <h3 className="couple__names">Alazar & Tsion</h3>
+            <p className="wedding__date">January 31, 2026</p>
+          </div>
+
+          <ul className="footer__links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Our Story</a></li>
+            <li><a href="#service">The Day</a></li>
+            <li><a href="/guest-photos">Guest Photos</a></li>
+            <li><a href="#rsvp">RSVP</a></li>
+            <li><a href="#registry">Gift Registry</a></li>
+          </ul>
+
+          <div className="footer__message">
+            <p>Thank you for celebrating with us ♡</p>
           </div>
         </div>
-        <div className="footer__col">
-          <ul className="footer__links">
-            <li><a href="#home">HOME</a></li>
-            <li><a href="#about">ABOUT US</a></li>
-            <li><a href="#service">SERVICES</a></li>
-            <li><a href="#client">CLIENT</a></li>
-            <li><a href="#blog">BLOG</a></li>
-            <li><a href="#contact">CONTACT US</a></li>
-          </ul>
-        </div>
-        <div className="footer__col">
-          <h4>STAY IN TOUCH</h4>
-          <p>
-            Keep up-to-date with all things Capturer! Join our community and
-            never miss a moment!
-          </p>
+
+        {/* Social Icons (small) */}
+        <div className="footer__socials">
+          <a href="#" aria-label="Instagram"><i className="ri-instagram-line"></i></a>
+          <a href="#" aria-label="Facebook"><i className="ri-facebook-fill"></i></a>
+          <a href="#" aria-label="Pinterest"><i className="ri-pinterest-line"></i></a>
         </div>
       </div>
+
+      {/* Minimal Bottom Bar */}
       <div className="footer__bar">
-        Copyright © 2024 Web Design Mastery. All rights reserved.
+        © {new Date().getFullYear()} Bride & Groom • With love, always
       </div>
     </footer>
   );

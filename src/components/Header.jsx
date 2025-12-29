@@ -1,5 +1,5 @@
 import React from "react";
-
+import HeroSaveTheDate from '../components/HeroSaveTheDate';
 const Header = () => {
   return (
     <header className="header" id="home">
@@ -28,8 +28,11 @@ const Header = () => {
           <li><a href="#contact">PHOTOS</a></li>
         </ul>
       </nav>
+      <HeroSaveTheDate />
     </header>
+  
   );
+ 
 };
 
 export default Header;

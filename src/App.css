@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
 :root {
   --text-dark: #171717;
   --text-light: #525252;
@@ -75,7 +77,7 @@ body {
 .header {
   min-height: 600px;
   background-image: radial-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.9)),
-    url("assets/header.jpg");
+    url("/assets/header.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -112,6 +114,7 @@ nav {
   gap: 1rem;
   background-color: transparent; /* make it transparent */
   z-index: 9; /* keep it on top */
+  min-height: 100 !important;
 }
 
 .nav__header {
@@ -336,7 +339,44 @@ nav {
 .gallery__btn {
   text-align: center;
 }
+.guest__photos__container {
+  padding: 4rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
+.guest__photos__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.guest__photo__item {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  background: white;
+}
+
+.guest__photo__item:hover {
+  transform: translateY(-8px);
+}
+
+.guest__photo__item img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+.guest__caption {
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #555;
+}
 .blog {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url("assets/blog.jpg");
@@ -402,79 +442,94 @@ nav {
   }
 }
 
+.footer {
+  background: #ffffff; /* Pure white background */
+  padding: 2rem 0 1rem;
+  margin-top: 3rem;
+  border-top: 1px solid #f0f0f0;
+  font-size: 0.95rem;
+}
+
 .footer__container {
-  display: grid;
-  gap: 4rem 0;
-  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.footer__col {
-  padding-inline: 2rem;
-}
-
-.footer__container img {
-  max-width: 170px;
-  margin-inline: auto;
-  margin-bottom: 2rem;
-}
-
-.footer__socials {
+.footer__compact {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+  text-align: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.footer__socials a {
-  font-size: 1.5rem;
-  color: var(--text-dark);
+.couple__names {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.8rem;
+  color: #b08d8d;
+  margin: 0;
+  letter-spacing: 1px;
 }
 
-.footer__socials a:hover {
-  color: var(--text-light);
+.wedding__date {
+  font-style: italic;
+  color: #aaa;
+  margin: 0.3rem 0 0;
 }
 
 .footer__links {
   list-style: none;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
 }
 
 .footer__links a {
-  display: block;
-  font-weight: 600;
-  color: var(--text-dark);
-  text-align: center;
+  color: #888;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s;
 }
 
 .footer__links a:hover {
-  color: var(--text-light);
+  color: #b08d8d;
 }
 
-.footer__col h4 {
+.footer__message p {
+  color: #999;
+  font-style: italic;
+  margin: 0;
+}
+
+.footer__socials {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
   margin-bottom: 1rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--text-dark);
-  text-align: center;
 }
 
-.footer__col p {
-  color: var(--text-light);
-  line-height: 1.75rem;
-  text-align: center;
+.footer__socials a {
+  font-size: 1.3rem;
+  color: #b08d8d;
+  transition: transform 0.2s;
+}
+
+.footer__socials a:hover {
+  transform: scale(1.1);
 }
 
 .footer__bar {
-  padding: 1rem;
-  font-size: 0.9rem;
-  color: var(--extra-light);
-  background-color: var(--text-dark);
   text-align: center;
+  padding: 1rem;
+  color: #bbb;
+  font-size: 0.85rem;
+  border-top: 1px solid #f5f5f5;
 }
-
 @media (width > 540px) {
   .portfolio__grid {
     grid-template-columns: repeat(2, 1fr);
@@ -803,91 +858,122 @@ nav {
     padding: 60px 80px;
   }
   }
-
 .map-section {
-  padding: 100px 20px;
-  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  padding: 90px 20px;
+  background: #ffffff;
   text-align: center;
 }
 
 .map-section .section__header {
-  color: white;
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
-  text-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+  color: #000;
+  font-size: 2.6rem;
+  margin-bottom: 0.8rem;
 }
 
 .map-section .section__description {
-  color: #d4af37;
-  font-size: 1.3rem;
-  margin-bottom: 3rem;
+  color: #333232;
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
   font-weight: 500;
-  letter-spacing: 1px;
 }
 
 .map-container {
   position: relative;
-  border-radius: 24px;
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
-  border: 5px solid #d4af37;
   max-width: 1100px;
   margin: 0 auto;
+  border: 1px solid #e5e5e5;
 }
 
 .map-container iframe {
   display: block;
-  border-radius: 20px;
+  border-radius: 18px;
 }
 
-/* Beautiful custom labels below the map */
+/* Location buttons */
 .map-labels {
   display: flex;
   justify-content: center;
-  gap: 2.5rem;
+  gap: 1.5rem;
   margin-top: 2rem;
   flex-wrap: wrap;
 }
 
 .map-labels .label {
-  color: white;
-  font-size: 1.1rem;
+  background: #ffffff;
+  color: #000;
+  padding: 12px 22px;
+  border-radius: 30px;
+  border: 1px solid #000;
+  font-size: 1rem;
   font-weight: 600;
+  text-decoration: none;
   display: flex;
   align-items: center;
   gap: 10px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  transition: all 0.25s ease;
 }
 
+.map-labels .label:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* Icon dots */
 .map-labels .label::before {
-  content: '';
-  width: 20px;
-  height: 20px;
-  background: #d4af37;
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #000;
   border-radius: 50%;
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
 }
 
-.icon-groom::before   { background: #d4af37; }
-.icon-bride::before   { background: #ffb6c1; border: 3px solid #d4af37; }
-.icon-church::before  { background: white; }
+.icon-bride::before {
+  background: #555;
+}
+
+.icon-church::before {
+  background: #999;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
   .map-section {
-    padding: 80px 15px;
+    padding: 60px 12px;
   }
+
   .map-section .section__header {
-    font-size: 2.3rem;
+    font-size: 2rem;
   }
+
+  .map-container iframe {
+    height: 360px;
+  }
+
   .map-labels {
-    gap: 1.5rem;
-    font-size: 1rem;
+    display: flex;
+    flex-wrap: nowrap;          /* 🔒 never wrap */
+    justify-content: center;
+    gap: 0.5rem;
+    overflow-x: auto;           /* fallback for very small screens */
+    -webkit-overflow-scrolling: touch;
   }
-  .map-container {
-    border-width: 4px;
+
+  .map-labels .label {
+    padding: 8px 12px;          /* reduced size */
+    font-size: 0.52rem;         /* reduced text */
+    border-radius: 22px;
+    white-space: nowrap;
+    flex-shrink: 0;             /* prevent shrinking inconsistently */
+  }
+
+  .map-labels .label::before {
+    width: 6px;
+    height: 8px;
   }
 }
+
 /* === PERFECT GIFT REGISTRY === */
 .gift-registry {
   background: linear-gradient(180deg, #918787 0%, #1a1a1a 100%);
@@ -1050,7 +1136,7 @@ nav {
 
 .countdown-section {
   padding: 120px 20px;
-  background: #dbd4d4;
+  background: #fffdfd;
   text-align: center;
 }
 
@@ -1069,26 +1155,38 @@ nav {
   margin: 0 auto;
   
 }
+.countdown-box.days { background-image: url("/assets/header.jpg"); }
+.countdown-box.hours { background-image: url("/assets/image-6.jpg"); }
+.countdown-box.minutes { background-image: url("/assets/image-7.jpg"); }
+.countdown-box.seconds { background-image: url("/assets/image-8.jpg"); }
+
 
 .countdown-box {
   position: relative;
   height: 180px;
   border-radius: 20px;
   overflow: hidden;
+
+  /* Image is applied HERE */
+  background-image: url("/assets/header.jpg");
   background-size: cover;
   background-position: center;
-  box-shadow: 0 10px 30px rgba(206, 201, 201, 0.4);
- 
-}
+  background-repeat: no-repeat;
 
+  box-shadow: 0 10px 30px rgba(206, 201, 201, 0.4);
+}
 .countdown-box::before {
   content: '';
   position: absolute;
   inset: 0;
-  /* background: rgba(15, 14, 14, 0.92); */
-  backdrop-filter: blur(5px);
-   background-image: linear-gradient(rgba(29, 26, 26, 0.6), rgba(0, 0, 0, 0.6)),
-    url("image.png");
+
+  /* Light dark overlay for readability */
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.55)
+  );
+
+  backdrop-filter: blur(2px);
 }
 
 .countdown-number {
@@ -1110,6 +1208,7 @@ nav {
   letter-spacing: 3px;
   margin-top: 8px;
 }
+
 
 /* Responsive: smaller but still 4 columns */
 @media (max-width: 900px) {
@@ -1155,8 +1254,8 @@ nav {
 /* SaveTheDate.css */
 .save-the-date {
   padding: 120px 20px;
- background: linear-gradient(rgba(255, 255, 255, 0.925), rgba(0,0,0,0.6)),
-              url('https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1600') center/cover;
+ background: linear-gradient(rgba(0, 0, 0, 0.925), rgba(0,0,0,0.6)),
+              url('/assets/image-6.jpg') center/cover;
 
   min-height: 100vh;
   display: flex;
@@ -1165,8 +1264,8 @@ nav {
 }
 
 .std-container {
-   background: linear-gradient(rgba(255, 255, 255, 0.925), rgba(0,0,0,0.6)),
-              url('https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1600') center/cover;
+   background: linear-gradient(rgba(255, 255, 255, 0.925), rgba(20, 20, 20, 0.911)),
+              url('/assets/portfolio-2.jpg') center/cover;
   backdrop-filter: blur(12px);
   border-radius: 30px;
   padding: 2rem 3rem;
@@ -1359,4 +1458,322 @@ nav {
   .weekday {
     font-size: 0.9rem;
   }
+}
+
+/* HeroSaveTheDate.css or in your main CSS */
+/* HeroSaveTheDate.css or in your main CSS *//* HeroSaveTheDate.css or in your main CSS *//* HeroSaveTheDate.css or in your main CSS */
+/* ===== HERO ===== */
+
+
+.hero-save-the-date {
+  position: relative;
+  min-height: 100vh;
+  background: url('/assets/header.jpg')
+    center / cover no-repeat fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* ===== NAMES ===== */
+.hero-names {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.4rem, 2vw, 1rem);
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.handwriting-svg {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+}
+
+/* Main names */
+.handwriting-name {
+  font-family: 'Sacramento', cursive;
+  font-size: clamp(90px, 16vw, 200px);
+  fill: white;
+  opacity: 0;
+  animation: handwritingReveal 2.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Delay second name */
+.handwriting-text.delay .handwriting-name {
+  animation-delay: 1.5s;
+}
+
+/* Handwriting animation */
+@keyframes handwritingReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+    filter: blur(3px);
+  }
+  60% {
+    opacity: 1;
+    filter: blur(0.5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* & SYMBOL */
+.hero-and {
+  font-family: 'Sacramento', cursive;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 1;
+}
+
+/* ===== TEXT CONTENT ===== */
+.hero-title {
+  font-size: clamp(1.4rem, 3.8vw, 3rem);
+  letter-spacing: clamp(4px, 1vw, 10px);
+  margin: 2rem 0;
+}
+
+.hero-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.hero-line {
+  width: clamp(120px, 20vw, 200px);
+  height: 1px;
+  background: white;
+}
+
+.hero-ornament {
+  font-size: 1.8rem;
+}
+
+.hero-date {
+  font-size: clamp(1.2rem, 3.5vw, 2.6rem);
+  letter-spacing: clamp(3px, 1vw, 8px);
+  margin: 2rem 0;
+}
+
+.hero-venue {
+  font-size: clamp(1rem, 3vw, 2.1rem);
+  letter-spacing: clamp(2px, 0.8vw, 6px);
+}
+
+/* ===== MOBILE EMPHASIS ===== */
+@media (max-width: 480px) {
+  .hero-names {
+    flex-direction: column;
+  }
+
+  /* Bigger, bolder names on phones */
+  .handwriting-name {
+    font-size: 180px;
+  }
+
+  /* Slightly smaller date on mobile */
+  .hero-date {
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+  }
+}
+:root {
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-marquee-vertical: marquee-vertical 30s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% / 3)); /* 3 repetitions for seamless loop */
+  }
+}
+
+@keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-100% / 3));
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  animation: var(--animate-marquee);
+}
+
+.animate-marquee-vertical {
+  display: flex;
+  flex-direction: column;
+  animation: var(--animate-marquee-vertical);
+}
+
+.group-hover\:paused:hover {
+  animation-play-state: paused;
+}
+
+/* Optional: responsive adjustments for cards */
+@media (max-width: 1024px) {
+  .w-44 {
+    width: 44%; /* scale card width for tablet */
+  }
+}
+
+@media (max-width: 640px) {
+  .w-44 {
+    width: 36%; /* scale card width for mobile */
+  }
+}
+/* ---------- SECTION ---------- */
+/* Wedding RSVP Marquee Styles */
+.rsvp-section-wedding {
+  padding: 80px 20px;
+  background: linear-gradient(to bottom, #fafafa, #fdf3f6);
+  font-family: Georgia, "Playfair Display", serif;
+  overflow: hidden;
+}
+
+.rsvp-title-wedding {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 60px;
+  color: #0c0b0b;
+  letter-spacing: 1px;
+}
+.rsvp-title-wedding::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 2px;
+  background: #d4a373;
+  margin: 20px auto 0;
+}
+
+.marquee-wrapper {
+  position: relative;
+  padding: 20px 0;
+}
+.marquee {
+  overflow: hidden;
+  margin: 20px 0;
+}
+.marquee-track {
+  display: flex;
+  gap: 20px;
+  animation: marquee var(--duration) linear infinite;
+}
+.marquee-track.reverse {
+  animation-direction: reverse;
+}
+.pause-on-hover:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+.rsvp-card-wedding {
+  min-width: 220px;
+  max-width: 240px;
+  flex-shrink: 0;
+  padding: 4px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #d4a373, #e8c7a9);
+  box-shadow: 0 10px 25px rgba(212, 163, 115, 0.2);
+  transition: all 0.4s ease;
+}
+.rsvp-card-wedding:hover {
+  transform: translateY(-8px) rotate(1deg) scale(1.05);
+  box-shadow: 0 20px 40px rgba(212, 163, 115, 0.3);
+}
+.card-inner {
+  background: #fffafa;
+  padding: 20px 18px;
+  border-radius: 16px;
+  height: 100%;
+  border: 1px solid #f0e6e0;
+  position: relative;
+  overflow: hidden;
+}
+.rsvp-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.heart-icon {
+  color: #d4a373;
+  font-size: 19px;
+  flex-shrink: 0;
+  position: relative;
+  top: 1px;                   /* Fine-tune vertical position */
+}
+.rsvp-name {
+  font-size: 17px;
+  font-weight: 600;
+  color: #5d4037;
+  font-family: "Playfair Display", serif;
+}
+.rsvp-wish {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #6d4c41;
+  font-style: italic;
+  margin: 0;
+}
+.card-decoration {
+  position: absolute;
+  bottom: 10px;
+  right: 14px;
+  opacity: 0.15;
+}
+.small-heart {
+  font-size: 32px;
+  color: #d4a373;
+}
+
+.fade-left-wedding,
+.fade-right-wedding {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 15%;
+  pointer-events: none;
+  z-index: 10;
+}
+.fade-left-wedding { left: 0; background: linear-gradient(to right, #fffafa, transparent); }
+.fade-right-wedding { right: 0; background: linear-gradient(to left, #fffafa, transparent); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .rsvp-title-wedding { font-size: 28px; margin-bottom: 40px; }
+  .rsvp-card-wedding { min-width: 180px; max-width: 200px; }
+  .rsvp-name { font-size: 16px; }
+  .rsvp-wish { font-size: 13px; }
 }

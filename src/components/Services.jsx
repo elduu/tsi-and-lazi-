@@ -1,20 +1,22 @@
 import { useRef } from "react";
 import { 
-  GiMirrorMirror, 
-  GiLinkedRings, 
-  GiFlowerPot, 
+  GiTie, 
+  GiDress, 
+  GiPhotoCamera, 
   GiChurch, 
   GiDiamondRing, 
-  GiWineGlass 
+   GiCakeSlice,
+
 } from "react-icons/gi";
+import { FaMale,  FaBirthdayCake } from "react-icons/fa";  
 
 const weddingTimeline = [
-  { time: "10:00 AM", title: "Groom's House",       icon: <GiMirrorMirror /> },
-  { time: "12:30 PM", title: "Bride's House",       icon: <GiLinkedRings /> },
-  { time: "1:00 PM",  title: "Photos",              icon: <GiFlowerPot /> },
+  { time: "10:00 AM", title: "Groom's House",       icon: <FaMale /> },
+  { time: "12:30 PM", title: "Bride's House",       icon: < GiDress /> },
+  { time: "1:00 PM",  title: "Photos",              icon: <GiPhotoCamera/> },
   { time: "2:00 PM",  title: "Church Arrival",      icon: <GiChurch /> },
   { time: "3:00 PM",  title: "Wedding Ceremony",    icon: <GiDiamondRing /> },
-  { time: "4:00 PM",  title: "Cake Cutting",        icon: <GiWineGlass /> },
+  { time: "4:00 PM",  title: "Cake Cutting",        icon: <  FaBirthdayCake /> },
 ];
 
 export default function Services() {
