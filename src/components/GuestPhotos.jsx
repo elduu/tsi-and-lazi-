@@ -18,7 +18,7 @@ const GuestPhotos = () => {
   }, []);
 
   return (
-    <section className="section__container guest__photos__container" style={{ padding: "4rem 1rem", minHeight: "100vh" }}>
+    <section className="section__container guest__photos__container" style={{ padding: "4rem 1rem", minHeight: "100vh" ,id:"guest-photo"}}>
       <h2 className="section__header">~ Guest Photos ~</h2>
       <p style={{ textAlign: "center", fontStyle: "italic", margin: "1rem 0 3rem" }}>
         Beautiful moments captured by our loved ones ❤️

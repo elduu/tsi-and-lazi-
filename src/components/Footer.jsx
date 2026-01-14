@@ -13,11 +13,11 @@ const Footer = () => {
 
           <ul className="footer__links">
             <li><a href="#home">Home</a></li>
-            <li><a href="#about">Our Story</a></li>
-            <li><a href="#service">The Day</a></li>
-            <li><a href="/guest-photos">Guest Photos</a></li>
+            <li><a href="#about">CALANDER</a></li>
+            <li><a href="#service">tIMELINE</a></li>
+            <li><a href="#locations">LOCATION</a></li>
             <li><a href="#rsvp">RSVP</a></li>
-            <li><a href="#registry">Gift Registry</a></li>
+            <li><a href="#guest-photo">GUEST</a></li>
           </ul>
 
           <div className="footer__message">

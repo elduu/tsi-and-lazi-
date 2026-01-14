@@ -35,7 +35,7 @@ export default function SaveTheDate() {
             >
               {day && day === weddingDay ? (
                 <div className="heart-day">
-                  <GiHeartInside className="heart-icon" />
+                  
                   <span className="day-number">{day}</span>
                 </div>
               ) : (
