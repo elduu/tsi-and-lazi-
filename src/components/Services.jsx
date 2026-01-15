@@ -11,12 +11,12 @@ import {
 import { FaMale,  FaBirthdayCake } from "react-icons/fa";  
 
 const weddingTimeline = [
-  { time: "10:00 AM", title: "Groom's House",       icon: <FaMale /> },
+  { time: "11:00 AM", title: "Groom's House",       icon: <FaMale /> },
   { time: "12:30 PM", title: "Bride's House",       icon: < GiDress /> },
   { time: "1:00 PM",  title: "Photos",              icon: <GiPhotoCamera/> },
   { time: "2:00 PM",  title: "Church Arrival",      icon: <GiChurch /> },
   { time: "3:00 PM",  title: "Wedding Ceremony",    icon: <GiDiamondRing /> },
-  { time: "4:00 PM",  title: "Cake Cutting",        icon: <  FaBirthdayCake /> },
+  { time: "5:00 PM",  title: "Cake Cutting",        icon: <  FaBirthdayCake /> },
 ];
 
 export default function Services() {

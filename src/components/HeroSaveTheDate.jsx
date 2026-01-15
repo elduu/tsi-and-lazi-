@@ -1,6 +1,6 @@
 export default function HeroSaveTheDate() {
   return (
-    <section className="hero-save-the-date">
+  <section className="hero-save-the-date" id="home">
       <div className="hero-overlay"></div>
 
       <div className="hero-content">

@@ -23,7 +23,7 @@ export default function Locations() {
         {/* Clickable location buttons */}
         <div className="map-labels">
           <a
-            href="https://maps.google.com/?q=Groom+House"
+            href="https://maps.app.goo.gl/pmQ9Y3CnbZFzoQKo6?g_st=atm"
             target="_blank"
             rel="noopener noreferrer"
             className="label icon-groom"
@@ -32,7 +32,7 @@ export default function Locations() {
           </a>
 
           <a
-            href="https://maps.google.com/?q=Bride+House"
+            href="https://maps.google.com/maps?q=9.000472,38.694680&ll=9.000472,38.694680&z=16"
             target="_blank"
             rel="noopener noreferrer"
             className="label icon-bride"
@@ -41,7 +41,7 @@ export default function Locations() {
           </a>
 
           <a
-            href="https://maps.google.com/?q=Ceremony+Church"
+            href="https://maps.app.goo.gl/47hwQkDJmd5erfTB9?g_st=it"
             target="_blank"
             rel="noopener noreferrer"
             className="label icon-church"

@@ -2,6 +2,7 @@ import React from "react";
 import HeroSaveTheDate from '../components/HeroSaveTheDate';
 const Header = () => {
   return (
+    <>
     <header className="header" id="home">
       <nav>
         <div className="nav__header">
@@ -28,8 +29,9 @@ const Header = () => {
           <li><a href="#contact">RSVP</a></li>
         </ul>
       </nav>
-      <HeroSaveTheDate />
     </header>
+       <HeroSaveTheDate />
+    </>
   
   );
  
