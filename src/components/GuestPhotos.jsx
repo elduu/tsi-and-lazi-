@@ -5,7 +5,7 @@ const GuestPhotos = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://laziandtsi-wed-cddlds-eff60a-68-183-172-126.traefik.me/api/wedding-photos")
+    fetch("http://laziandtsi-wed-cddlds-eff60a-68-183-172-126.traefik.me/api/wedding-photos")
       .then((res) => res.json())
       .then((data) => {
         setPhotos(data);
@@ -35,7 +35,7 @@ const GuestPhotos = () => {
           {photos.map((photo) => (
             <div key={photo.url} className="guest__photo__item">
               <img
-                src={`https://laziandtsi-wed-cddlds-eff60a-68-183-172-126.traefik.me${photo.url}`}
+                src={`http://laziandtsi-wed-cddlds-eff60a-68-183-172-126.traefik.me/${photo.url}`}
                 alt="Guest photo"
                 style={{ width: "100%", height: "320px", objectFit: "cover", borderRadius: "12px" }}
               />
