@@ -5,7 +5,7 @@ const GuestPhotos = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/wedding-photos")
+    fetch("https://dokploy.newblossomequb.net/api/wedding-photos")
       .then((res) => res.json())
       .then((data) => {
         setPhotos(data);
@@ -35,7 +35,7 @@ const GuestPhotos = () => {
           {photos.map((photo) => (
             <div key={photo.url} className="guest__photo__item">
               <img
-                src={`http://localhost:5000${photo.url}`}
+                src={`https://dokploy.newblossomequb.net${photo.url}`}
                 alt="Guest photo"
                 style={{ width: "100%", height: "320px", objectFit: "cover", borderRadius: "12px" }}
               />

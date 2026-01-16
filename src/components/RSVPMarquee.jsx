@@ -49,7 +49,7 @@ export default function RSVPMarquee() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/rsvp")
+      .get("https://dokploy.newblossomequb.net/rsvp")
       .then((res) => setRsvps(res.data))
       .catch((err) => console.error("Error fetching RSVPs:", err));
   }, []);

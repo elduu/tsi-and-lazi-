@@ -1259,8 +1259,8 @@ nav {
 /* SaveTheDate.css */
 .save-the-date {
   padding: 20px 20px;
- background: linear-gradient(rgba(0, 0, 0, 0.925), rgba(0,0,0,0.6)),
-              url('/assets/4S7A0574.JPG') center/cover;
+ background: 
+              url('/assets/background.jpg') center/cover;
 
   min-height: 100vh;
   display: flex;
@@ -1269,8 +1269,8 @@ nav {
 }
 
 .std-container {
-   background: linear-gradient(rgba(255, 255, 255, 0.925), rgba(20, 20, 20, 0.911)),
-              url('/assets/4S7A0033.JPG') center/cover;
+   background: linear-gradient(rgba(228, 224, 224, 0.925), rgba(5, 5, 5, 0.911)),
+              url('/assets/background.jpg') center/cover;
   backdrop-filter: blur(12px);
   border-radius: 30px;
   padding: 2rem 3rem;
@@ -1507,7 +1507,7 @@ nav {
 .hero-save-the-date {
   position: relative;
   min-height: 100vh;
-  background: url('/assets/header.jpg')
+  background: url('/assets/header2.jpg')
     center 35%/ cover no-repeat ;
   display: flex;
   align-items: center;

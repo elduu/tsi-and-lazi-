@@ -10,6 +10,7 @@ import {
 } from "react-icons/gi";
 import { FaMale,  FaBirthdayCake } from "react-icons/fa";  
 
+
 const weddingTimeline = [
   { time: "11:00 AM", title: "Groom's House",       icon: <FaMale /> },
   { time: "12:30 PM", title: "Bride's House",       icon: < GiDress /> },
