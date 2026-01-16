@@ -15,7 +15,7 @@ const RSVPForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/rsvp", formData);
+      const response = await axios.post("https://laziandtsi-wed-cddlds-eff60a-68-183-172-126.traefik.me/rsvp", formData);
       alert(response.data.message);
       setFormData({ name: "", attending: "yes", wish: "" });
     } catch (error) {

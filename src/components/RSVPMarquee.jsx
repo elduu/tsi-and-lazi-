@@ -49,7 +49,7 @@ export default function RSVPMarquee() {
 
   useEffect(() => {
     axios
-      .get("https://dokploy.newblossomequb.net/rsvp")
+      .get("https://laziandtsi-wed-cddlds-eff60a-68-183-172-126.traefik.me/rsvp")
       .then((res) => setRsvps(res.data))
       .catch((err) => console.error("Error fetching RSVPs:", err));
   }, []);
