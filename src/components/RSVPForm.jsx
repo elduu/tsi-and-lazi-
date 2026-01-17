@@ -15,7 +15,7 @@ const RSVPForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://laziandtsi-wed-cddlds-eff60a-68-183-172-126.traefik.me/rsvp", formData);
+      const response = await axios.post("https://weddingapi.newblossomequb.net/rsvp", formData);
       alert(response.data.message);
       setFormData({ name: "", attending: "yes", wish: "" });
     } catch (error) {
@@ -40,7 +40,7 @@ const RSVPForm = () => {
         fontSize: "2rem",
         color: "#333333",
         letterSpacing: "1px"
-      }}>RSVP</h2>
+      }}> ~JOIN US~ </h2>
       <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
         <input
           type="text"
@@ -114,7 +114,7 @@ const RSVPForm = () => {
           onMouseEnter={e => e.target.style.backgroundColor = "#333333"}
           onMouseLeave={e => e.target.style.backgroundColor = "#000000"}
         >
-          Submit RSVP
+          Submit 
         </button>
       </form>
     </div>

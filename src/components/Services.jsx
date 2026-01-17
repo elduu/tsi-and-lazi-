@@ -9,6 +9,7 @@ import {
 
 } from "react-icons/gi";
 import { FaMale,  FaBirthdayCake } from "react-icons/fa";  
+import { FiArrowLeftCircle, FiArrowRightCircle } from 'react-icons/fi';
 
 
 const weddingTimeline = [
@@ -52,7 +53,9 @@ const triggerGlow = () => {
         </p>
 
         <div className="timeline-wrapper">
-          <button onClick={scrollLeft} className="nav-arrow left"></button>
+           <button className="nav-arrow left" onClick={scrollLeft}>
+  <FiArrowLeftCircle size={36} />
+</button>
           
           <div className="timeline-horizontal" ref={scrollRef}>
             {weddingTimeline.map((event, index) => (
@@ -72,7 +75,11 @@ const triggerGlow = () => {
             ))}
           </div>
 
-          <button onClick={scrollRight} className="nav-arrow right"></button>
+      
+
+<button className="nav-arrow right" onClick={scrollRight}>
+  <FiArrowRightCircle size={36} />
+</button>
         </div>
       </div>
     </section>

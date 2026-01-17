@@ -231,7 +231,7 @@ nav {
 
 .service {
   background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
-    url("assets/image22.jpg");
+    url("/assets/serv1.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -381,7 +381,7 @@ nav {
 }
 .blog {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("assets/blog1.jpg");
+    url("/assets/blog1.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -781,19 +781,28 @@ nav {
 .nav-arrow {
   position: absolute;
   top: 50%;
-  transform: translateY(50%);
-  background: rgba(245, 242, 242, 0.6);
-  color: rgb(15, 14, 14);
+  transform: translateY(-50%);           /* ← corrected (was +50%) */
+  
+  width: 36px;
+  height: 36px;
+  border-radius:50%;                    /* real circle */
+  
+  background: rgba(245, 242, 242, 0.7);
   border: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 20%;
-  font-size: 1.8rem;
-  cursor: pointer;
-  z-index: 10;
-  opacity: 0.7;
-  transition: all 0.3s;
+  color: #111;
+  
+  font-size: 1.9rem;                     /* reasonable size for ← → */
+  font-weight: bold;
+  
   display: flex;
+  align-items: center;
+  justify-content: center;               /* centers the symbol */
+  
+  cursor: pointer;
+  opacity: 0.75;
+  transition: all 0.25s ease;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 .timeline-horizontal::after {
   content: "";
