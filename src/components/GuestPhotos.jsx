@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';   // ← Add this
+import { useNavigate } from "react-router-dom";
 
 const GuestPhotos = () => {
   const [photos, setPhotos] = useState([]);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();   // ← Add this
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://weddingapi.newblossomequb.net/api/wedding-photos")
@@ -23,34 +23,32 @@ const GuestPhotos = () => {
 
   return (
     <section className="section__container guest__photos__container" id="guest-photo">
-
-      {/* ← Back button – placed at the very top */}
       <button
-        onClick={() => navigate(-1)}   // Go back to previous page / home
+        onClick={() => navigate(-1)}
         style={{
-          position: 'absolute',
-          top: '20px',
-          left: '20px',
+          position: "absolute",
+          top: "20px",
+          left: "20px",
           zIndex: 100,
-          background: 'rgba(78, 62, 62, 0.5)',
-          color: 'white',
-          border: 'none',
-        borderRadius: '50%',
-          width: '36px',
-          height: '36px',
-          fontSize: '1.8rem',
-          cursor: 'pointer',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          boxShadow: '0 2px 10px rgba(0,0,0,0.3)',
-          transition: 'all 0.2s',
+          background: "rgba(78, 62, 62, 0.5)",
+          color: "white",
+          border: "none",
+          borderRadius: "50%",
+          width: "36px",
+          height: "36px",
+          fontSize: "1.8rem",
+          cursor: "pointer",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          boxShadow: "0 2px 10px rgba(0,0,0,0.3)",
+          transition: "all 0.2s",
         }}
         onMouseOver={(e) => {
-          e.currentTarget.style.background = 'rgba(0, 0, 0, 0.7)';
+          e.currentTarget.style.background = "rgba(0, 0, 0, 0.7)";
         }}
         onMouseOut={(e) => {
-          e.currentTarget.style.background = 'rgba(0, 0, 0, 0.5)';
+          e.currentTarget.style.background = "rgba(0, 0, 0, 0.5)";
         }}
         aria-label="Go back"
       >
@@ -62,12 +60,13 @@ const GuestPhotos = () => {
         Beautiful moments captured by our loved ones ❤️
       </p>
 
-      {/* The rest of your content remains the same */}
-      <div style={{
-        textAlign: "center",
-        margin: "0 0 2.5rem 0",
-        fontSize: "1.05rem"
-      }}>
+      <div
+        style={{
+          textAlign: "center",
+          margin: "0 0 2.5rem 0",
+          fontSize: "1.05rem",
+        }}
+      >
         <a
           href={telegramBotLink}
           target="_blank"
@@ -85,7 +84,6 @@ const GuestPhotos = () => {
             boxShadow: "0 2px 8px rgba(0,0,0,0.12)",
             transition: "all 0.2s ease",
           }}
-          // ... your hover handlers ...
         >
           📸 Add your photo via Telegram
         </a>
@@ -101,11 +99,16 @@ const GuestPhotos = () => {
         <div className="guest__photos__grid">
           {photos.map((photo) => (
             <div key={photo.url} className="guest__photo__item">
-             <img
-  src={photo.url}
-  alt="Guest photo"
-  style={{ width: "100%", height: "320px", objectFit: "cover", borderRadius: "12px" }}
-/>
+              <img
+                src={photo.url}
+                alt="Guest photo"
+                style={{
+                  width: "100%",
+                  height: "320px",
+                  objectFit: "cover",
+                  borderRadius: "12px",
+                }}
+              />
               <p style={{ textAlign: "center", padding: "1rem", color: "#555" }}>
                 From <strong>@{photo.sender || "Guest"}</strong>
                 <br />
