@@ -101,11 +101,11 @@ const GuestPhotos = () => {
         <div className="guest__photos__grid">
           {photos.map((photo) => (
             <div key={photo.url} className="guest__photo__item">
-              <img
-                src={`https://wedding.newblossomequb.net${photo.url}`}
-                alt="Guest photo"
-                style={{ width: "100%", height: "320px", objectFit: "cover", borderRadius: "12px" }}
-              />
+             <img
+  src={photo.url}
+  alt="Guest photo"
+  style={{ width: "100%", height: "320px", objectFit: "cover", borderRadius: "12px" }}
+/>
               <p style={{ textAlign: "center", padding: "1rem", color: "#555" }}>
                 From <strong>@{photo.sender || "Guest"}</strong>
                 <br />
