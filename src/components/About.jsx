@@ -14,7 +14,7 @@ const About = () => {
       </p>  
       <p className="section__description">
        Together with our families, we joyfully invite you to celebrate our marriage on<strong>31 January 2026. </strong> 
-       The ceremony will be held at the <strong>Keranio Bethel kale Hiowt, Weyra (100m from street)</strong> 
+       The ceremony will be held at the <strong>Keranio Bethel kale Hiwot, Weyra (100m from street)</strong> 
 
       </p>
        <p className="section__description">

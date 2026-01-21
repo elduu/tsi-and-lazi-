@@ -18,7 +18,8 @@ import Countdown from "./components/Countdown";
 import SaveTheDate from "./components/SaveTheDate";
 import RSVPForm from "./components/RSVPForm";
 import RSVPMarquee from "./components/RSVPMarquee";
-import GuestPhotos from "./components/GuestPhotos"; // ← Make sure this exists
+import GuestPhotos from "./components/GuestPhotos";
+import AllMessagesPage from './components/AllMessagesPage'; // ← Make sure this exists
 
 import "./App.css";
 
@@ -97,6 +98,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/guest-photos" element={<GuestPhotos />} />
+        <Route path="/all-messages" element={<AllMessagesPage />} />
       </Routes>
     </Router>
   );

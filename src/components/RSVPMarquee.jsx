@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { GiHeartInside } from "react-icons/gi";
 import { FaHeart } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";   // ← added for redirection
 
 /* ---------- Marquee Component ---------- */
 const Marquee = ({
@@ -10,7 +11,6 @@ const Marquee = ({
   pauseOnHover = true,
   duration = "40s",
 }) => {
-  // Duplicate content 3 times for perfect seamless loop
   const repeatedChildren = [...children, ...children, ...children];
 
   return (
@@ -43,9 +43,10 @@ const RSVPCard = ({ name, wish }) => {
   );
 };
 
-/* ---------- Main RSVPMarquee Component ---------- */
+/* ---------- Main Component ---------- */
 export default function RSVPMarquee() {
   const [rsvps, setRsvps] = useState([]);
+  const navigate = useNavigate();   // ← hook for navigation
 
   useEffect(() => {
     axios
@@ -59,29 +60,38 @@ export default function RSVPMarquee() {
 
   return (
     <section className="rsvp-section-wedding">
-      <h2 className="rsvp-title-wedding">
-        Messages from Our Loved Ones
-      </h2>
+      <h2 className="rsvp-title-wedding">Messages from Our Loved Ones</h2>
 
       <div className="marquee-wrapper">
-        {/* Top row — left to right */}
-        <Marquee duration="45s">
+        {/* Top row */}
+        <Marquee duration="38s">
           {firstRow.map((r) => (
             <RSVPCard key={r.id} name={r.name} wish={r.wish} />
           ))}
         </Marquee>
 
-        {/* Bottom row — right to left */}
-        <Marquee reverse duration="50s">
+        {/* Bottom row */}
+        <Marquee reverse duration="42s">
           {secondRow.map((r) => (
             <RSVPCard key={r.id} name={r.name} wish={r.wish} />
           ))}
         </Marquee>
 
-        {/* Fade overlays */}
         <div className="fade-left-wedding" />
         <div className="fade-right-wedding" />
       </div>
+
+      {/* Redirect Button */}
+      {rsvps.length > 0 && (
+        <div className="view-all-container">
+          <button
+            className="view-all-btn"
+            onClick={() => navigate("/all-messages")}
+          >
+            View All Messages
+          </button>
+        </div>
+      )}
     </section>
   );
 }

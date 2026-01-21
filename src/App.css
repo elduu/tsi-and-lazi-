@@ -1647,7 +1647,7 @@ nav {
   }
 }
 :root {
-  --animate-marquee: marquee 30s linear infinite;
+  --animate-marquee: marquee 20s linear infinite;
   --animate-marquee-vertical: marquee-vertical 30s linear infinite;
 }
 
@@ -1805,7 +1805,74 @@ nav {
   font-size: 32px;
   color: #d4a373;
 }
+ .view-all-container {
+  text-align: center;
+  margin: 50px 0 60px;
+  padding: 0 20px;
+}
 
+.view-all-btn {
+  position: relative;
+  background: linear-gradient(135deg, #d4a373 0%, #e8c7a9 50%, #d4a373 100%);
+  color: #ffffff;
+  border: none;
+  padding: 14px 44px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 50px;                /* pill shape - very elegant */
+  cursor: pointer;
+  box-shadow: 
+    0 8px 20px rgba(212, 163, 115, 0.35),
+    inset 0 2px 6px rgba(255, 255, 255, 0.4);   /* soft inner glow */
+  transition: all 0.35s ease;
+  font-family: Georgia, "Playfair Display", serif;
+  overflow: hidden;
+}
+
+/* Subtle shine animation on hover */
+.view-all-btn:hover {
+  background: linear-gradient(135deg, #e8c7a9 0%, #d4a373 50%, #e8c7a9 100%);
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 
+    0 14px 30px rgba(212, 163, 115, 0.45),
+    inset 0 2px 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Optional: tiny heart or sparkle effect (using pseudo-element) */
+.view-all-btn::before {
+  content: "♥";
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  opacity: 0.9;
+  transition: all 0.4s ease;
+}
+
+.view-all-btn:hover::before {
+  left: 14px;
+  opacity: 1;
+}
+
+/* Active / clicked state */
+.view-all-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(212, 163, 115, 0.3);
+}
+
+/* Mobile adjustments - make button full-width-ish on small screens */
+@media (max-width: 768px) {
+  .view-all-btn {
+    padding: 16px 60px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    display: block;
+  }
+}
 .fade-left-wedding,
 .fade-right-wedding {
   position: absolute;
@@ -1819,9 +1886,138 @@ nav {
 .fade-right-wedding { right: 0; background: linear-gradient(to left, #fffafa, transparent); }
 
 /* Responsive */
+
+/* Responsive */
 @media (max-width: 768px) {
-  .rsvp-title-wedding { font-size: 28px; margin-bottom: 40px; }
-  .rsvp-card-wedding { min-width: 180px; max-width: 200px; }
-  .rsvp-name { font-size: 16px; }
-  .rsvp-wish { font-size: 13px; }
+  .marquee {
+    --duration: 20s !important;
+  }
+
+  .rsvp-card-wedding {
+    min-width: 160px;
+    max-width: 180px;
+  }
+
+  .card-inner {
+    padding: 10px 9px;
+  }
+
+  .rsvp-name {
+    font-size: 10px;
+  }
+
+  .rsvp-wish {
+    font-size: 8.5px;
+  }
+}
+.all-messages-page {
+  padding: 60px 16px 80px;
+  background: linear-gradient(to bottom, #fafafa, #fdf3f6);
+  min-height: 100vh;
+  font-family: Georgia, "Playfair Display", serif;
+}
+
+.all-messages-page .page-header {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.all-messages-page .page-header h1 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #5d4037;
+  margin: 0;
+}
+
+.all-messages-page .back-btn {
+  position: absolute;
+  left: 16px;
+  top: 0;
+  background: #d4a373;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.all-messages-page .back-btn:hover {
+  background: #c3955e;
+  transform: translateY(-2px);
+}
+
+.all-messages-page .messages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Mobile — only affect cards INSIDE .all-messages-page */
+@media (max-width: 768px) {
+  .all-messages-page {
+    padding: 40px 10px 60px;
+  }
+
+  .all-messages-page .page-header h1 {
+    font-size: 1.9rem;
+  }
+
+  .all-messages-page .back-btn {
+    position: static;
+    display: block;
+    margin: 0 auto 32px;
+    width: fit-content;
+  }
+
+  .all-messages-page .messages-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 4px;
+  }
+
+  /* Wider cards — only on this page */
+  .all-messages-page .rsvp-card-wedding {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    margin: 0 auto;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(212, 163, 115, 0.22);
+  }
+
+  .all-messages-page .card-inner {
+    padding: 24px 18px;
+  }
+
+  .all-messages-page .rsvp-name {
+    font-size: 18px;
+  }
+
+  .all-messages-page .rsvp-wish {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-top: 12px;
+  }
+
+  .all-messages-page .heart-icon {
+    font-size: 22px;
+  }
+
+  .all-messages-page .small-heart {
+    font-size: 38px;
+    opacity: 0.18;
+  }
+}
+
+/* Text wrapping help (shared is fine) */
+.rsvp-wish {
+  word-break: break-word;
+  hyphens: auto;
+  white-space: pre-wrap;
 }
