@@ -23,7 +23,7 @@ export default function Locations() {
         {/* Clickable location buttons */}
         <div className="map-labels">
           <a
-            href="https://maps.app.goo.gl/pmQ9Y3CnbZFzoQKo6?g_st=atm"
+            href="https://maps.google.com/maps?q=8.956942,38.691850&ll=8.956942,38.691850&z=16"
             target="_blank"
             rel="noopener noreferrer"
             className="label icon-groom"
