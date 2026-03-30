@@ -8,16 +8,15 @@ export default function Locations() {
         <p className="section__description">
         </p>
         <div className="map-container">
-          <iframe
-            title="Wedding Locations"
-            width="100%"
-            height="500"
-            style={{ border: 0 }}
-            loading="lazy"
-            allowFullScreen
-            referrerPolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/d/u/0/embed?mid=1nyA_e-StfqP_BEXT9YbetVcnJTw9TuU"
-          />
+         <iframe 
+  src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d504256.91379971115!2d38.7330455!3d9.1085816!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2set!4v1774871582407!5m2!1sen!2set"
+  width="600"
+  height="450"
+  style="border:0;"
+  allowfullscreen=""
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
         </div>
 
         {/* Clickable location buttons */}
