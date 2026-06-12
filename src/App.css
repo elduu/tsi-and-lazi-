@@ -1701,7 +1701,7 @@ nav {
 /* Wedding RSVP Marquee Styles */
 .rsvp-section-wedding {
   padding: 80px 20px;
-  background: linear-gradient(to bottom, #fafafa, #fdf3f6);
+  background: #fffffe;
   font-family: Georgia, "Playfair Display", serif;
   overflow: hidden;
 }
@@ -1719,7 +1719,7 @@ nav {
   display: block;
   width: 80px;
   height: 2px;
-  background: #d4a373;
+  background: #f0eeed;
   margin: 20px auto 0;
 }
 
@@ -1814,7 +1814,7 @@ nav {
 
 .view-all-btn {
   position: relative;
-  background: linear-gradient(135deg, #d4a373 0%, #e8c7a9 50%, #d4a373 100%);
+  background: linear-gradient(135deg, #050504 0%, #0f0e0d 50%, #161412 100%);
   color: #ffffff;
   border: none;
   padding: 14px 44px;

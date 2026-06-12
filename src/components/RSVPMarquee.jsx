@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import Papa from "papaparse";
 import { GiHeartInside } from "react-icons/gi";
 import { FaHeart } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";   // ← added for redirection
+import { useNavigate } from "react-router-dom";
 
 /* ---------- Marquee Component ---------- */
 const Marquee = ({
@@ -34,7 +34,11 @@ const RSVPCard = ({ name, wish }) => {
           <FaHeart className="heart-icon" />
           <span className="rsvp-name">{name}</span>
         </div>
-        <p className="rsvp-wish">"{wish}"</p>
+
+        <p className="rsvp-wish truncate-wish">
+          "{wish}"
+        </p>
+
         <div className="card-decoration">
           <GiHeartInside className="small-heart" />
         </div>
@@ -46,13 +50,20 @@ const RSVPCard = ({ name, wish }) => {
 /* ---------- Main Component ---------- */
 export default function RSVPMarquee() {
   const [rsvps, setRsvps] = useState([]);
-  const navigate = useNavigate();   // ← hook for navigation
+  const navigate = useNavigate();
 
   useEffect(() => {
-    axios
-      .get("https://weddingapi.newblossomequb.net/rsvp")
-      .then((res) => setRsvps(res.data))
-      .catch((err) => console.error("Error fetching RSVPs:", err));
+    Papa.parse("/rsvps.csv", {
+      download: true,
+      header: true,
+      skipEmptyLines: true,
+      complete: (results) => {
+        setRsvps(results.data);
+      },
+      error: (err) => {
+        console.error("Error loading RSVP CSV:", err);
+      },
+    });
   }, []);
 
   const firstRow = rsvps.slice(0, Math.ceil(rsvps.length / 2));
@@ -60,20 +71,20 @@ export default function RSVPMarquee() {
 
   return (
     <section className="rsvp-section-wedding">
-      <h2 className="rsvp-title-wedding">Messages from Our Loved Ones</h2>
+      <h2 className="rsvp-title-wedding">
+        Messages from Our Loved Ones
+      </h2>
 
       <div className="marquee-wrapper">
-        {/* Top row */}
         <Marquee duration="38s">
-          {firstRow.map((r) => (
-            <RSVPCard key={r.id} name={r.name} wish={r.wish} />
+          {firstRow.map((r, index) => (
+            <RSVPCard key={r.id || index} name={r.name} wish={r.wish} />
           ))}
         </Marquee>
 
-        {/* Bottom row */}
         <Marquee reverse duration="42s">
-          {secondRow.map((r) => (
-            <RSVPCard key={r.id} name={r.name} wish={r.wish} />
+          {secondRow.map((r, index) => (
+            <RSVPCard key={r.id || index} name={r.name} wish={r.wish} />
           ))}
         </Marquee>
 
@@ -81,7 +92,6 @@ export default function RSVPMarquee() {
         <div className="fade-right-wedding" />
       </div>
 
-      {/* Redirect Button */}
       {rsvps.length > 0 && (
         <div className="view-all-container">
           <button
@@ -92,6 +102,16 @@ export default function RSVPMarquee() {
           </button>
         </div>
       )}
+
+      {/* ---------- ONLY ADDITION (3-LINE CUT CSS) ---------- */}
+      <style>{`
+        .truncate-wish {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3;
+          overflow: hidden;
+        }
+      `}</style>
     </section>
   );
 }

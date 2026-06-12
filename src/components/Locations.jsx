@@ -5,21 +5,25 @@ export default function Locations() {
     <section className="map-section" id="locations">
       <div className="section__container">
         <h2 className="section__header">IMPORTANT LOCATIONS</h2>
+
         <p className="section__description">
+          Find the important locations for our special day. Click any location
+          below to open it directly in Google Maps.
         </p>
+
         <div className="map-container">
-         <iframe 
-  src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d504256.91379971115!2d38.7330455!3d9.1085816!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2set!4v1774871582407!5m2!1sen!2set"
-  width="600"
-  height="450"
-  style="border:0;"
-  allowfullscreen=""
-  loading="lazy"
-  referrerpolicy="no-referrer-when-downgrade">
-</iframe>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d504256.91379971115!2d38.7330455!3d9.1085816!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2set!4v1774871582407!5m2!1sen!2set"
+            width="100%"
+            height="450"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Wedding Locations Map"
+          />
         </div>
 
-        {/* Clickable location buttons */}
         <div className="map-labels">
           <a
             href="https://maps.google.com/maps?q=8.956942,38.691850&ll=8.956942,38.691850&z=16"
@@ -27,7 +31,7 @@ export default function Locations() {
             rel="noopener noreferrer"
             className="label icon-groom"
           >
-            Groom’s House
+            Groom's House
           </a>
 
           <a
@@ -36,7 +40,7 @@ export default function Locations() {
             rel="noopener noreferrer"
             className="label icon-bride"
           >
-            Bride’s House
+            Bride's House
           </a>
 
           <a
@@ -45,7 +49,7 @@ export default function Locations() {
             rel="noopener noreferrer"
             className="label icon-church"
           >
-             Church
+            Church
           </a>
         </div>
       </div>

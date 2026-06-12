@@ -23,6 +23,12 @@ const Footer = () => {
           <div className="footer__message">
             <p>Thank you for celebrating with us ♡</p>
           </div>
+          <div className="footer__message">
+            <p>powered by <a href="https://www.inviteyours.com" target="_blank" rel="noopener noreferrer">www.inviteyours.com</a>  digital invitation platform</p>
+          </div>
+          <div className="footer__message">
+         
+          </div>
         </div>
 
         {/* Social Icons (small) */}
